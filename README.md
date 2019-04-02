@@ -140,4 +140,5 @@ list := f.SetTable(bridge).
 
 
 
-更多函数使用方法敬请期待文档更新，目前可查阅代码
+[更多函数]: https://github.com/NiuStar/xsql3/DBFactory	"更多"
+
