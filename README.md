@@ -24,12 +24,12 @@
 ```go
 //基本信息;
 type BridgeBaseBasic struct {
-	ID        Int    `json:"id" type:"int(11)" comment:"桥梁信息id" required:"yes" mark:"NOT NULL PRIMARY KEY AUTO_INCREMENT"`
-	BridgeId  Int    `json:"bridgeId" type:"int(11)" default:"0" comment:"桥梁信息id" required:"no"`
-	Len       Float  `json:"len" type:"float(11)" default:"0" comment:"桥梁信息id" required:"no"`
-	BseType   Int    `json:"bseType" type:"tinyint(3)" Q:"" default:"0" comment:"类型，0 QM/桥面；1 ZJ/桩基；2 CT/承台；3 XL/系梁；4 GL/盖梁；5 DZ/墩柱；6 TS/台身；7 XJL/现浇段；8 YZL/预制梁；9 GXL/钢箱梁"`
-	BseUnitId String `json:"bseUnitId" type:"varchar(60)" Q:"" default:"" comment:"1编号" required:"yes"`
-	Note      String `json:"note" type:"varchar(255)" Q:"" default:"" comment:"备注" required:"yes"`
+  ID        Int    `json:"id" type:"int(11)" comment:"桥梁信息id" required:"yes" mark:"NOT NULL PRIMARY KEY AUTO_INCREMENT"`
+  BridgeId  Int    `json:"bridgeId" type:"int(11)" default:"0" comment:"桥梁信息id" required:"no"`
+  Len       Float  `json:"len" type:"float(11)" default:"0" comment:"桥梁信息id" required:"no"`
+  BseType   Int    `json:"bseType" type:"tinyint(3)" Q:"" default:"0" comment:"类型，0 QM/桥面；1 ZJ/桩基；2 CT/承台；3 XL/系梁；4 GL/盖梁；5 DZ/墩柱；6 TS/台身；7 XJL/现浇段；8 YZL/预制梁；9 GXL/钢箱梁"`
+  BseUnitId String `json:"bseUnitId" type:"varchar(60)" Q:"" default:"" comment:"1编号" required:"yes"`
+  Note      String `json:"note" type:"varchar(255)" Q:"" default:"" comment:"备注" required:"yes"`
 }
 
 func (t *BridgeBaseBasic) TableName() string {
@@ -45,10 +45,10 @@ func NewInterface() *BridgeBaseBasic {
 }
 
 func init() {
-	f := xsql3.Register("test_sql",NewInterface(),"测试数据表")
-	f.AddUniqueKey("mbo_sql_Unique",[]string{"id"})
-	f.AddIndexKey("mbo_sql_index",[]string{"BridgeId"})
-	f.CopyToMySQL()
+  f := xsql3.Register("test_sql",NewInterface(),"测试数据表")
+  f.AddUniqueKey("mbo_sql_Unique",[]string{"id"})
+  f.AddIndexKey("mbo_sql_index",[]string{"BridgeId"})
+  f.CopyToMySQL()
 }
 ```
 
@@ -72,9 +72,9 @@ func init() {
 
 ```go
   bridge := DB.NewInterface()
-	bridge.BseUnitId.SetValue("BseUnitId——哈哈")
-	bridge.Node.SetValue("node20000-f返回")
-	fmt.Println("插入的id ： ",DBFactory.NewDBFactory().InsertDB(bridge))
+  bridge.BseUnitId.SetValue("BseUnitId——哈哈")
+  bridge.Node.SetValue("node20000-f返回")
+  fmt.Println("插入的id ： ",DBFactory.NewDBFactory().InsertDB(bridge))
 ```
 
 2、数据更新
@@ -112,9 +112,9 @@ GetResultsOperation()与GetResults()
 ```go
 bridge := DB.NewInterface()
 list := DBFactory.NewDBFactory().SetTable(bridge).
-		SetFields(&bridge.BseUnitId).
-			SetConditions(bridge.ID.Equal(1)).
-		GetResultsOperation()
+    SetFields(&bridge.BseUnitId).
+      SetConditions(bridge.ID.Equal(1)).
+    GetResultsOperation()
 ```
 
 5、复杂查询
