@@ -12,7 +12,6 @@ type DBOperation interface {
 }
 //json转换的时候需要用到
 type IHandler interface {
-	Handler() interface{}
 }
 //数据库操作需要，不能用基本类型
 type TableType interface {
